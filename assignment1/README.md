@@ -2,8 +2,9 @@
 
 *Fake Window* is an installation created for the 6-projector setup at the Yale Center for Collaborative Arts and Media. It consists of 4 video files and a custom Processing video player. The fake window effect looks most convincing with the lights dimmed all the way and when it's dark outside.
 
+Click to watch YouTube video👇
+
 [![Fake Mirror](http://img.youtube.com/vi/FmDjzjQos2A/0.jpg)](http://www.youtube.com/watch?v=FmDjzjQos2A "CPSC334 Project #1 - Fake Window")
-Click to watch video ☝️
 
 
 ### How to run:
