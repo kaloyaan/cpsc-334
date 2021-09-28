@@ -80,15 +80,16 @@ def solo_channel():
 
 print("Flick joystick to select channel, button to solo, switch to mute/unmute")
 
-# Joystick advances channel
-joystick_x.when_pressed = next_channel
-joystick_y.when_pressed = next_channel
-joystick_click.when_pressed = next_channel
+while True:
+    # Joystick advances channel
+    joystick_x.when_pressed = next_channel
+    joystick_y.when_pressed = next_channel
+    joystick_click.when_pressed = next_channel
 
-# Switch changes mute status
-switch.when_pressed = mute_channel
-switch.when_released = mute_channel
+    # Switch changes mute status
+    switch.when_pressed = mute_channel
+    switch.when_released = mute_channel
 
-# Button solos
-button.when_held = solo_channel
-button.when_released = update_volumes
+    # Button solos
+    button.when_held = solo_channel
+    button.when_released = update_volumes
