@@ -1,4 +1,7 @@
 # A simple stem player / mixer
+# You need to download the stems-loop folder as well!
+# Playing 100 gecs - ringtone
+
 # Joystick controls stem selection
 # Button - Solo
 # Switch - Mute/Unmute
