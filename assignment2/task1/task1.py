@@ -54,6 +54,7 @@ def next_channel():
 
 
 def update_volumes():
+    print("Current volumes: ", channel_volumes)
     for index, volume in enumerate(channel_volumes):
         pygame.mixer.Channel(index).set_volume(volume)
 
@@ -61,8 +62,10 @@ def update_volumes():
 def mute_channel():
     # Muting the music
     if channel_volumes[current_channel] == 0:
+        print("Unuted channel ", current_channel)
         channel_volumes[current_channel] = 1
     else:
+        print("Muted channel ", current_channel)
         channel_volumes[current_channel] = 0
 
     update_volumes()
@@ -71,6 +74,7 @@ def mute_channel():
 def solo_channel():
     # Solo channel - only on hold
     # Turn all channels off except current_channel
+    print("Soloed channel ", current_channel)
     for index, volume in enumerate(channel_volumes):
         if index == current_channel:
             pygame.mixer.Channel(index).set_volume(1)
@@ -85,17 +89,17 @@ def stop():
 
 print("Flick joystick to select channel, button to solo, switch to mute/unmute. Press joystick to stop")
 
-while True:
-    # Joystick advances channel
-    joystick_x.when_pressed = next_channel
-    joystick_y.when_pressed = next_channel
+# while True:
+# Joystick advances channel
+joystick_x.when_pressed = next_channel
+joystick_y.when_pressed = next_channel
 
-    # Switch changes mute status
-    switch.when_pressed = mute_channel
-    switch.when_released = mute_channel
+# Switch changes mute status
+switch.when_pressed = mute_channel
+switch.when_released = mute_channel
 
-    # Button solos
-    button.when_held = solo_channel
-    button.when_released = update_volumes
+# Button solos
+button.when_held = solo_channel
+button.when_released = update_volumes
 
-    joystick_click.when_pressed = stop
+joystick_click.when_pressed = stop
