@@ -78,13 +78,12 @@ def solo_channel():
             pygame.mixer.Channel(index).set_volume(0)
 
 
-print("Flick joystick to select channel, button to solo, switch to mute/unmute")
+print("Flick joystick to select channel, button to solo, switch to mute/unmute. Press joystick to stop")
 
 while True:
     # Joystick advances channel
     joystick_x.when_pressed = next_channel
     joystick_y.when_pressed = next_channel
-    joystick_click.when_pressed = next_channel
 
     # Switch changes mute status
     switch.when_pressed = mute_channel
@@ -93,3 +92,5 @@ while True:
     # Button solos
     button.when_held = solo_channel
     button.when_released = update_volumes
+
+    joystick_click.when_pressed = quit
