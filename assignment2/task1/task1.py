@@ -31,7 +31,7 @@ pygame.mixer.Channel(3).play(
     pygame.mixer.Sound("stems-loop/bass.wav"), -1)
 
 # Define buttons
-button = Button(2)
+button = Button(2, hold_time=0.5)
 switch = Button(19)
 joystick_click = Button(21)
 joystick_y = Button(20)
@@ -83,6 +83,7 @@ def solo_channel():
 
 
 def stop():
+    print("Bye!")
     pygame.mixer.music.stop()
     quit()
 
