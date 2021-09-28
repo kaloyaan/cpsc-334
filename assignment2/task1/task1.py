@@ -37,13 +37,14 @@ joystick_click = Button(21)
 joystick_y = Button(20)
 joystick_x = Button(16)
 
-
+global current_channel
 current_channel = 0
 prev_volumes = [1, 1, 1, 1]  # init prev_volumes memory for Solo functionality
 channel_volumes = [1, 1, 1, 1]  # init set all volumes to max
 
 
 def next_channel():
+    global current_channel
     if current_channel == 3:
         current_channel = 0
     else:
