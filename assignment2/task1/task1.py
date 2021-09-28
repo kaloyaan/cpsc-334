@@ -4,6 +4,7 @@
 #Switch - Mute/Unmute
 
 import pygame
+from gpiozero import Button
 
 # Starting the mixer
 pygame.mixer.pre_init(22050, -16, 2, 1024)
@@ -29,51 +30,64 @@ pygame.mixer.Channel(2).play(
 pygame.mixer.Channel(3).play(
     pygame.mixer.Sound("stems-loop/bass.wav"), -1)
 
+# Define buttons
+button = Button(2)
+switch = Button(19)
+joystick_click = Button(21)
+joystick_y = Button(20)
+joystick_x = Button(16)
+
+
 current_channel = 0
 prev_volumes = [1, 1, 1, 1]  # init prev_volumes memory for Solo functionality
 channel_volumes = [1, 1, 1, 1]  # init set all volumes to max
 
 
-def change_channel(channel):
-    if channel == 3:
-        return(0)
+def next_channel():
+    if current_channel == 3:
+        current_channel = 0
     else:
-        return(channel + 1)
+        current_channel = current_channel + 1
+    print("Channel ", current_channel)
+    print("Volume ", channel_volumes[current_channel])
 
 
-# infinite loop
-while True:
+def update_volumes():
+    for index, volume in enumerate(channel_volumes):
+        pygame.mixer.Channel(index).set_volume(volume)
 
-    print("Press A to select channel, S to solo, D to mute/unmute")
-    print("Press 'e' to exit the program")
-    query = input("  ")
 
-    if query == 'd':
-        # Muting the music
-        if channel_volumes[current_channel] == 0:
-            channel_volumes[current_channel] = 1
+def mute_channel():
+    # Muting the music
+    if channel_volumes[current_channel] == 0:
+        channel_volumes[current_channel] = 1
+    else:
+        channel_volumes[current_channel] = 0
+
+    update_volumes()
+
+
+def solo_channel():
+    # Solo channel - only on hold
+    # Turn all channels off except current_channel
+    for index, volume in enumerate(channel_volumes):
+        if index == current_channel:
+            pygame.mixer.Channel(index).set_volume(1)
         else:
-            channel_volumes[current_channel] = 0
+            pygame.mixer.Channel(index).set_volume(0)
 
-        pygame.mixer.Channel(current_channel).set_volume(
-            channel_volumes[current_channel])
 
-    elif query == 'a':
+print("Flick joystick to select channel, button to solo, switch to mute/unmute")
 
-        # Change channel
-        current_channel = change_channel(current_channel)
-        print("Current channel: ", current_channel)
+# Joystick advances channel
+joystick_x.when_pressed = next_channel(current_channel)
+joystick_y.when_pressed = next_channel(current_channel)
+joystick_click.when_pressed = next_channel(current_channel)
 
-    elif query == 's':
+# Switch changes mute status
+switch.when_pressed = mute_channel()
+switch.when_released = mute_channel()
 
-        # Solo channel - only on hold
-        # Save previous channel config
-        # Turn all channels off except current_channel
-        # Upon release restore previous config
-        print("TODO")
-
-    elif query == 'e':
-
-        # Stop the mixer
-        pygame.mixer.music.stop()
-        break
+# Button solos
+button.when_held = solo_channel()
+button.when_released = update_volumes()
