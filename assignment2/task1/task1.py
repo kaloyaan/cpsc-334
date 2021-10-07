@@ -1,7 +1,11 @@
 # A simple stem player / mixer
+# You need to download the stems-loop folder as well!
+# Playing 100 gecs - ringtone
+
 # Joystick controls stem selection
-#Button - Solo
-#Switch - Mute/Unmute
+# Button - Solo
+# Switch - Mute/Unmute
+# There are 4 states - the different tracks playing simultaniously - the button and switch affect different tracks depending on the joystick
 
 import pygame
 from gpiozero import Button
@@ -62,7 +66,7 @@ def update_volumes():
 def mute_channel():
     # Muting the music
     if channel_volumes[current_channel] == 0:
-        print("Unuted channel ", current_channel)
+        print("Unmuted channel ", current_channel)
         channel_volumes[current_channel] = 1
     else:
         print("Muted channel ", current_channel)
@@ -91,16 +95,18 @@ def stop():
 print("Flick joystick to select channel, button to solo, switch to mute/unmute. Press joystick to stop")
 
 while True:
-    # Joystick advances channel
+    # Joystick advances channel - both X and Y do the same for simplicity sake.
+    # Only moves forward, cycles once it gets to the end.
     joystick_x.when_pressed = next_channel
     joystick_y.when_pressed = next_channel
 
-    # Switch changes mute status
+    # Switch changes mute status - works in both directions for better workflow with joystick
     switch.when_pressed = mute_channel
     switch.when_released = mute_channel
 
-    # Button solos
+    # Button soloes the current channel
     button.when_pressed = solo_channel
     button.when_released = update_volumes
 
+    # Stop button - joystick click
     joystick_click.when_pressed = stop
