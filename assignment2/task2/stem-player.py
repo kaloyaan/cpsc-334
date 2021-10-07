@@ -35,17 +35,27 @@ pygame.mixer.Channel(2).play(
 pygame.mixer.Channel(3).play(
     pygame.mixer.Sound('stems/song' + str(current_song) + '/bass.wav'), -1)
 
+global current_channel
+current_channel = 0
+prev_volumes = [1, 0, 0, 0]  # init prev_volumes memory for Solo functionality
+channel_volumes = [1, 0, 0, 0]  # init set all volumes to max
+
+
+def update_volumes():
+    print("Current volumes: ", channel_volumes)
+    for index, volume in enumerate(channel_volumes):
+        pygame.mixer.Channel(index).set_volume(volume)
+
+
+update_volumes()  # init start at 1, 0, 0, 0
+
+
 # Define buttons
 button = Button(2)
 switch = Button(19)
 joystick_click = Button(21)
 joystick_y = Button(20)
 joystick_x = Button(16)
-
-global current_channel
-current_channel = 0
-prev_volumes = [1, 0, 0, 0]  # init prev_volumes memory for Solo functionality
-channel_volumes = [1, 0, 0, 0]  # init set all volumes to max
 
 
 def next_channel():
@@ -56,12 +66,6 @@ def next_channel():
         current_channel = current_channel + 1
     print("Channel ", current_channel)
     print("Volume ", channel_volumes[current_channel])
-
-
-def update_volumes():
-    print("Current volumes: ", channel_volumes)
-    for index, volume in enumerate(channel_volumes):
-        pygame.mixer.Channel(index).set_volume(volume)
 
 
 def mute_channel():
@@ -122,6 +126,8 @@ def next_song():
     # play a sound on channel 3
     pygame.mixer.Channel(3).play(
         pygame.mixer.Sound('stems/song' + str(current_song) + '/bass.wav'), -1)
+
+    update_volumes()
 
 
 print("Flick joystick to select channel, button to solo, switch to mute/unmute. Press joystick to stop")
