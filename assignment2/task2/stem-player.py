@@ -29,11 +29,11 @@ pygame.mixer.Channel(1).play(
 
 # play a sound on channel 2
 pygame.mixer.Channel(2).play(
-    pygame.mixer.Sound('stems/song' + str(current_song) + '/vocals.wav'), -1)
+    pygame.mixer.Sound('stems/song' + str(current_song) + '/bass.wav'), -1)
 
 # play a sound on channel 3
 pygame.mixer.Channel(3).play(
-    pygame.mixer.Sound('stems/song' + str(current_song) + '/bass.wav'), -1)
+    pygame.mixer.Sound('stems/song' + str(current_song) + '/vocals.wav'), -1)
 
 global current_channel
 current_channel = 0
@@ -121,11 +121,11 @@ def next_song():
 
     # play a sound on channel 2
     pygame.mixer.Channel(2).play(
-        pygame.mixer.Sound('stems/song' + str(current_song) + '/vocals.wav'), -1)
+        pygame.mixer.Sound('stems/song' + str(current_song) + '/bass.wav'), -1)
 
     # play a sound on channel 3
     pygame.mixer.Channel(3).play(
-        pygame.mixer.Sound('stems/song' + str(current_song) + '/bass.wav'), -1)
+        pygame.mixer.Sound('stems/song' + str(current_song) + '/vocals.wav'), -1)
 
     update_volumes()
 
