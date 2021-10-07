@@ -44,8 +44,8 @@ joystick_x = Button(16)
 
 global current_channel
 current_channel = 0
-prev_volumes = [1, 1, 1, 1]  # init prev_volumes memory for Solo functionality
-channel_volumes = [1, 1, 1, 1]  # init set all volumes to max
+prev_volumes = [1, 0, 0, 0]  # init prev_volumes memory for Solo functionality
+channel_volumes = [1, 0, 0, 0]  # init set all volumes to max
 
 
 def next_channel():
@@ -104,8 +104,8 @@ def next_song():
     # Reinitialize
     current_channel = 0
     # init prev_volumes memory for Solo functionality
-    prev_volumes = [1, 1, 1, 1]
-    channel_volumes = [1, 1, 1, 1]  # init set all volumes to max
+    prev_volumes = [1, 0, 0, 0]
+    channel_volumes = [1, 0, 0, 0]  # init set all volumes to max
 
     # play a sound on channel 0
     pygame.mixer.Channel(0).play(
