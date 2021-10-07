@@ -98,7 +98,7 @@ def stop():
 
 
 def next_song():
-    global current_song
+    global current_song, current_channel, prev_volumes, channel_volumes
     if current_song == 3:
         current_song = 1
     else:
