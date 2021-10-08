@@ -4,11 +4,11 @@
 
 *Kalo's Stem Player* is a simple stem player device. It can play 4 different song parts: drums, guitar/synth, bass and vocals. You can mute and unmute them using the switch, and solo just the one you're on using the button. The joystick controls the stem and song selection. There's 3 songs loaded on there right now!
 
-![Untitled](Assignment%202%20Task%202%20README%208d4bf1cd59214f30a86d082f4ab9f964/Untitled.png)
+![Box](readme-images/box.png)
 
 Video demo: [https://www.youtube.com/watch?v=ghRyUcrA4c8](https://www.youtube.com/watch?v=ghRyUcrA4c8)
 
-![Untitled](Assignment%202%20Task%202%20README%208d4bf1cd59214f30a86d082f4ab9f964/Untitled%201.png)
+![Diagram](readme-images/diagram.png)
 
 ## Run Mode 1:
 
