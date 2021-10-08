@@ -4,9 +4,12 @@
 
 ![Box](readme-images/box.png)
 
-Video demo: [https://www.youtube.com/watch?v=ghRyUcrA4c8](https://www.youtube.com/watch?v=ghRyUcrA4c8)
-
 ![Diagram](readme-images/diagram.png)
+
+## Video demo
+
+Check it out: [https://www.youtube.com/watch?v=ghRyUcrA4c8](https://www.youtube.com/watch?v=ghRyUcrA4c8)
+
 
 ## Run Mode 1:
 
