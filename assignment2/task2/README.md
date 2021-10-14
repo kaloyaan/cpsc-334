@@ -1,14 +1,15 @@
-# Assignment 2 Task 2 README
-
 # CPSC 334 Assignment #2 - Kalo's Stem Player
 
 *Kalo's Stem Player* is a simple stem player device. It can play 4 different song parts: drums, guitar/synth, bass and vocals. You can mute and unmute them using the switch, and solo just the one you're on using the button. The joystick controls the stem and song selection. There's 3 songs loaded on there right now!
 
 ![Box](readme-images/box.png)
 
-Video demo: [https://www.youtube.com/watch?v=ghRyUcrA4c8](https://www.youtube.com/watch?v=ghRyUcrA4c8)
-
 ![Diagram](readme-images/diagram.png)
+
+## Video demo
+
+Check it out: [https://www.youtube.com/watch?v=ghRyUcrA4c8](https://www.youtube.com/watch?v=ghRyUcrA4c8)
+
 
 ## Run Mode 1:
 
