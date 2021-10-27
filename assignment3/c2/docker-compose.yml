@@ -1,0 +1,26 @@
+version: "3"
+services:
+  cfd_pet_red:
+    image: "msnelling/cloudflared:2021.10.2"
+    volumes:
+      - "./cfd/cert.pem:/etc/cloudflared/cert.pem"
+    environment:
+      TUNNEL_HOSTNAME: "red.cody.ws"
+      TUNNEL_URL: "http://172.29.24.110:80"
+    network_mode: "host"
+  cfd_pet_org:
+    image: "msnelling/cloudflared:2021.10.2"
+    volumes:
+      - "./cfd/cert.pem:/etc/cloudflared/cert.pem"
+    environment:
+      TUNNEL_HOSTNAME: "orange.cody.ws"
+      TUNNEL_URL: "http://172.29.25.220:80"
+    network_mode: "host"
+  cfd_pet_yel:
+    image: "msnelling/cloudflared:2021.10.2"
+    volumes:
+      - "./cfd/cert.pem:/etc/cloudflared/cert.pem"
+    environment:
+      TUNNEL_HOSTNAME: "yellow.cody.ws"
+      TUNNEL_URL: "http://172.29.19.159:80"
+    network_mode: "host"
