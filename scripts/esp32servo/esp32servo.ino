@@ -5,8 +5,6 @@ int in1Pin = 25;
 int in2Pin = 33;
 int in3Pin = 32;
 int in4Pin = 35;
- 
-Stepper myStepper(64, in1Pin, in2Pin, in3Pin, in4Pin);  
 
 Servo myservo;  // create servo object to control a servo
 // 16 servo objects can be created on the ESP32
@@ -26,15 +24,9 @@ void setup() {
   // using default min/max of 1000us and 2000us
   // different servos may require different min/max settings
   // for an accurate 0 to 180 sweep
-
-  // set the speed at 400 rpm:
-  myStepper.setSpeed(400);
-  // initialize the serial port:
-  Serial.begin(9600);
 }
 
 void loop() {
-  myStepper.step(stepsPerRevolution);
 
   for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
     // in steps of 1 degree
