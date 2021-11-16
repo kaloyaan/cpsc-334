@@ -19,31 +19,7 @@ Check it out: [https://www.youtube.com/watch?v=dggmvMKxl2g](https://www.youtube.
 
 ## Wiring diagram:
 
-+-------+
-|       |
-|       |
-|power  |
-|source |                                             +-------+
-|12v    |                                             |       |
-+----^^-+                                             |       |
-     ||                       +----------------++-----+ servo |
-     ||                       |                ||     |       |
-     ||      +----------------+------+-+-+-+   ||     +-------+
-     ||      |                |      | | | |   ||
-+----++------+-+              |      | | | |   ||
-|              |          3.3v power | | | |   ||
-| driver board |              |      | | | |   || ground
-|              |           +--v------v-v-v-v---vv------+
-+------+-------+           |         25-35    13       |
-       |                   |                           |
-       |                   |                           |
- +-----v-----+             |           ESP32           |
- |           |             |                           |
- |           |             |                           |
- |  stepper  |             |                           |
- |           |             |                           |
- |           |             +---------------------------+
- +-----------+
+Check out `wiring-diagram.txt`.
 
 ## How to run:
 
