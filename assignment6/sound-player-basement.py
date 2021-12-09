@@ -21,7 +21,7 @@ trigger = 'FALSE'
 
 # Set up serial reading
 ser = serial.Serial()
-ser.port = '/dev/cu.usbserial-130'
+ser.port = '/dev/cu.usbserial-120'
 ser.open()
 
 while True:
@@ -39,7 +39,7 @@ while True:
         trigger = 'TRUE'
         pygame.mixer.Channel(0).play(
             pygame.mixer.Sound('sounds/scot-basement.wav'), -1)
-        time.sleep(44)
+        time.sleep(43)
         pygame.mixer.Channel(0).play(
             pygame.mixer.Sound('sounds/classical.mp3'), -1)
     trigger = new_trigger
