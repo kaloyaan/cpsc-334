@@ -1,15 +1,15 @@
-#N canvas 146 25 1165 784 12;
-#X obj 31 559 catch~ \$0-output;
+#N canvas 146 25 1165 784 10;
+#X obj 27 604 catch~ \$0-output;
 #X obj 309 761 dac~ 1 2;
-#X obj 31 206 bng 24 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+#X obj 34 239 bng 24 250 50 0 empty empty empty 17 7 0 10 -4034 -1
 -1;
-#X obj 31 264 line~;
-#X text 128 248 <- Ramp Generator;
-#X obj 31 372 -~ 0.25;
-#X obj 31 401 cos~;
-#X obj 32 469 throw~ \$0-output;
-#X obj 31 298 sqrt~;
-#X obj 31 436 lop~ 1000;
+#X obj 34 297 line~;
+#X text 131 281 <- Ramp Generator;
+#X obj 34 405 -~ 0.25;
+#X obj 34 434 cos~;
+#X obj 35 502 throw~ \$0-output;
+#X obj 34 331 sqrt~;
+#X obj 34 469 lop~ 1000;
 #X obj 341 232 bng 24 250 50 0 empty empty empty 17 7 0 10 -4034 -1
 -1;
 #X obj 341 261 t b b;
@@ -44,7 +44,7 @@
 #X obj 1062 216 noise~;
 #X obj 1062 245 /~ 4;
 #X msg 761 293 1 \, 0 100;
-#X obj 279 33 tgl 24 0 empty empty empty 17 7 0 10 -4032 -1 -1 0 1
+#X obj 335 67 tgl 24 0 empty empty empty 17 7 0 10 -4032 -1 -1 0 1
 ;
 #X obj 312 153 random 3;
 #X obj 312 182 sel 0 1 2;
@@ -55,31 +55,31 @@
 #X text 415 328 // DRUM;
 #X text 888 386 // 3-Pole Highpass;
 #X obj 888 269 +~;
-#X text 105 389 <- Sine Waveshaper;
-#X text 31 529 // MASTER OUTPUT;
+#X text 108 422 <- Sine Waveshaper;
+#X text 27 574 // MASTER OUTPUT;
 #X text 888 123 // DETUNED OSCILLATORS;
 #X text 371 231 –– SNARE DRUM –––––––––––––––––––––
 ;
 #X text 761 93 –– HIHAT –––––––––––––––––––––––––––
 ;
-#X text 91 298 <- Pitch Bend;
-#X text 91 332 <- Pitch;
-#X text 31 175 –– BASS DRUM –––––––––––––
+#X text 94 331 <- Pitch Bend;
+#X text 94 365 <- Pitch;
+#X text 23 217 –– BASS DRUM –––––––––––––
 ;
 #X text 526 182 <- Pattern Seed;
 #X text 466 124 <- Number of Steps;
-#X obj 31 332 *~ 20;
+#X obj 34 365 *~ 20;
 #X obj 625 324 hip~ 2000;
 #X obj 1008 153 phasor~ 100;
-#X obj 86 18 loadbang;
+#X obj 24 11 loadbang;
 #X obj 679 60 snapshot~;
 #X msg 442 187 seed \$1;
-#X obj 81 602 /~ 5;
+#X obj 77 647 /~ 5;
 #X text 688 576 DISTORT;
-#X obj 177 639 +~;
+#X obj 151 706 +~;
 #X obj 684 641 clip~ -0.5 0.5;
 #X text 322 553 DELAY;
-#X msg 32 235 0 \, 1 200;
+#X msg 35 268 0 \, 1 200;
 #X obj 458 715 +~;
 #X obj 624 700 /~ 5;
 #X obj 297 592 delwrite~ mydelay 500;
@@ -106,11 +106,11 @@
 #X obj 790 587 lop~ 2;
 #X obj 788 559 adc~ 6;
 #X obj 684 605 *~;
-#X obj 254 290 adc~ 7;
-#X obj 259 317 lop~ 2;
-#X obj 101 357 *~;
-#X obj 259 351 *~ 3;
-#X text 128 362 Knob modifier;
+#X obj 257 323 adc~ 7;
+#X obj 262 350 lop~ 2;
+#X obj 104 390 *~;
+#X obj 262 384 *~ 3;
+#X text 131 395 Knob modifier;
 #X obj 535 423 adc~ 8;
 #X obj 538 452 lop~ 2;
 #X msg 344 290 1 \, 0 100;
@@ -128,8 +128,22 @@
 #X obj 750 724 lop~ 2;
 #X obj 360 721 *~ 2;
 #X obj 795 617 *~ 30;
-#X obj 313 65 metro 1;
-#X msg 313 33 tempo 120000 permin;
+#X obj 336 102 metro 1;
+#X msg 22 37 in 18;
+#X obj 20 54 s bela_setDigital;
+#X obj 126 9 r bela_digitalIn18;
+#X obj 236 35 + 1;
+#X msg 112 121 60;
+#X msg 114 147 tempo \$1 permin;
+#X obj 182 172 print;
+#X msg 192 119 150;
+#X msg 239 119 200;
+#X msg 144 119 120;
+#X obj 178 68 % 5;
+#X obj 121 90 sel 0 1 2 3 4;
+#X obj 175 35 i;
+#X msg 285 121 120000;
+#X obj 129 32 sel 1;
 #X connect 0 0 68 0;
 #X connect 2 0 73 0;
 #X connect 3 0 8 0;
@@ -169,7 +183,6 @@
 #X connect 40 0 51 1;
 #X connect 41 0 25 0;
 #X connect 42 0 122 0;
-#X connect 42 0 123 0;
 #X connect 43 0 44 0;
 #X connect 44 0 2 0;
 #X connect 44 1 10 0;
@@ -184,6 +197,7 @@
 #X connect 63 0 21 0;
 #X connect 64 0 34 0;
 #X connect 65 0 42 0;
+#X connect 65 0 123 0;
 #X connect 66 0 67 0;
 #X connect 66 0 87 0;
 #X connect 67 0 43 0;
@@ -238,4 +252,22 @@
 #X connect 121 0 99 1;
 #X connect 122 0 43 0;
 #X connect 122 0 45 0;
-#X connect 123 0 122 0;
+#X connect 123 0 124 0;
+#X connect 125 0 137 0;
+#X connect 126 0 135 1;
+#X connect 127 0 128 0;
+#X connect 128 0 129 0;
+#X connect 128 0 122 0;
+#X connect 130 0 128 0;
+#X connect 131 0 128 0;
+#X connect 132 0 128 0;
+#X connect 133 0 134 0;
+#X connect 134 0 127 0;
+#X connect 134 1 132 0;
+#X connect 134 2 130 0;
+#X connect 134 3 131 0;
+#X connect 134 4 136 0;
+#X connect 135 0 126 0;
+#X connect 135 0 133 0;
+#X connect 136 0 128 0;
+#X connect 137 0 135 0;
