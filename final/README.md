@@ -2,7 +2,7 @@
 
 *The Drum/Drama Machine* is a wooden box full of wonders. Drum mode plays a randomly generated drum loop sequence (kick, snare + hi-hat). You can control the pattern and length of the loop using the blue knobs and edit the character of each individual sound using the yellow knobs. The two green knobs are echo and distortion effects. When you switch the machine into Drama mode, it turns into a chaotic drone generator. The kick becomes a tone, and the snare and hat turn into noise. All the controls remain the same, so you can edit the drone sequence and apply effects to it, just as you would in drum mode. You can play with the kick and echo knobs expressively to produce occasionally beautiful harmonies ✨
 
-(photo)
+![Drum/Drama Machine](photo.jpg)
 
 ## Video demo
 
