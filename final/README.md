@@ -36,3 +36,7 @@ Connect the on/off switch to Digital 7 (PD 18) and the drum/drama control to Dig
 1. Connect components. Rename `drum-drama-machine.pd` to `_main.pd` and upload to Bela by dragging it into the IDE. Power the Bela via USB.
 2. Connect 3.5mm to audio output
 3. Flick switch to start device.
+
+## Acknowledgements
+
+Drum machine code based on code from Mike Moreno - https://patchstorage.com/simple-drum-machine-tutorial/
