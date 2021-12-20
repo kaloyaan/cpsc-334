@@ -6,7 +6,7 @@
 
 ## Video demo
 
-Check it out: ****
+Check it out: https://www.youtube.com/watch?v=YKtPqPamy2Y
 
 ## Components:
 
